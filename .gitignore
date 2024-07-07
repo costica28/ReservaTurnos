@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Backend/ReservaTurnos/src/Commons/ReservaTurnos.Commons/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Commons/ReservaTurnos.Commons/obj
+/Backend/ReservaTurnos/src/Core/ReservaTurnos.Core.Application/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Core/ReservaTurnos.Core.Application/obj
+/Backend/ReservaTurnos/src/Core/ReservaTurnos.Core.Domain/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Core/ReservaTurnos.Core.Domain/obj
+/Backend/ReservaTurnos/src/Infrastructure/ReservaTurnos.Infrastructure.Persistence/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Infrastructure/ReservaTurnos.Infrastructure.Persistence/obj
+/Backend/ReservaTurnos/src/Infrastructure/ReservaTurnos.Infrastructure.Proxy/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Infrastructure/ReservaTurnos.Infrastructure.Proxy/obj
+/Backend/ReservaTurnos/src/Presentation/ReservaTurnos.Presentation.Api/bin/Debug/net8.0
+/Backend/ReservaTurnos/src/Presentation/ReservaTurnos.Presentation.Api/obj
+/Backend/ReservaTurnos/.vs
