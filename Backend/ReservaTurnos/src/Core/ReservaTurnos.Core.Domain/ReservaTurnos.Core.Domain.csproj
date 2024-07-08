@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Commons\ReservaTurnos.Commons\ReservaTurnos.Commons.csproj" />
+  </ItemGroup>
+
 </Project>

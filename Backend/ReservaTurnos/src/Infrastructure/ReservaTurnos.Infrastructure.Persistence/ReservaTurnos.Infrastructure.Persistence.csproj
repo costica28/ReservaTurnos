@@ -10,4 +10,8 @@
     <ProjectReference Include="..\..\Core\ReservaTurnos.Core.Application\ReservaTurnos.Core.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+  </ItemGroup>
+
 </Project>
