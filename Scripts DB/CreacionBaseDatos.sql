@@ -21,7 +21,7 @@ CREATE TABLE servicios(
 CREATE TABLE turnos(
 	id_turno int not null PRIMARY KEY IDENTITY(1,1),
 	id_servicio int not null,
-	fecha_turno datetime,
+	fecha_turno date not null,
 	hora_apertura time not null,
 	hora_cierre time not null,
 	estado int not null,
