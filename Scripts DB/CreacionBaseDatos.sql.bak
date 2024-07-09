@@ -27,18 +27,3 @@ CREATE TABLE turnos(
 	estado int not null,
 	CONSTRAINT Fk_id_Servicio_turnos FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio)
 )
-
-
-CREATE TABLE roles(
-	id int not null PRIMARY KEY IDENTITY(1,1),
-	nombre_rol varchar(40) not null
-)
-
-CREATE TABLE usuarios(
-	id int not null PRIMARY KEY IDENTITY(1,1),
-	nombre_usuario varchar(60) not null,
-	email varchar(20) not null,
-	contrasena varchar(60) not null,
-	id_rol int not null,
-	CONSTRAINT fk_id_rol_usuarios FOREIGN KEY(id_rol) REFERENCES roles(id)
-)

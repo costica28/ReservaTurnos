@@ -2,7 +2,7 @@
 
 namespace ReservaTurnos.Core.Domain.Models
 {
-    [Table("Usuarios")]
+    [Table("usuarios")]
     public class User: BaseModel
     {
         public string nombre_usuario { get; set; } = string.Empty;
