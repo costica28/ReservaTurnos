@@ -13,6 +13,7 @@ namespace ReservaTurnos.Infrastructure.Persistence
         {
             services.AddDbContext<ShiftsDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnectionString")));
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IShiftRepository, ShiftRepository>();
             services.AddScoped<IUserRepository, UserRepository>();

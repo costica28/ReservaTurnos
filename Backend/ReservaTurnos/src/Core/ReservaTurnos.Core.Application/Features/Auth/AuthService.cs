@@ -12,24 +12,24 @@ namespace ReservaTurnos.Core.Application.Features.Auth
 {
     public class AuthService
     {
-        private IUserRepository _UserRepository;
+        private IUnitOfWork _unitOfWork;
         public IConfiguration _configuration;
         private string _KeyEncriptDecript = string.Empty;
 
-        public AuthService(IConfiguration configuration, IUserRepository userRepository)
+        public AuthService(IConfiguration configuration, IUnitOfWork unitOfWork)
         {
-            _UserRepository = userRepository;
+            _unitOfWork = unitOfWork;
             _configuration = configuration;
             _KeyEncriptDecript = _configuration["KeyEncriptDecript"]; 
         }
 
         public async Task<Token> Login(AuthRequest authRequest)
         {
-            var userByEmail = await _UserRepository.FindByEmailAsync(authRequest.email);
+            var userByEmail = await _unitOfWork.UserRepository.FindByEmailAsync(authRequest.email);
             if (userByEmail == null)
                 throw new NotFoundException(nameof(User), authRequest.email);
 
-            if (Commons.EncryptDecript.Decript(userByEmail.contrasena, _KeyEncriptDecript) != authRequest.contrasena)
+            if (Commons.EncryptDecript.Decript(userByEmail.contrasena, _KeyEncriptDecript).Replace("\r","").Replace("\n", "") != authRequest.contrasena)
                 throw new BadRequestException("Las credenciales son incorrectas");
 
             var infoUser = await GenerateInfoUser(userByEmail);
@@ -48,7 +48,7 @@ namespace ReservaTurnos.Core.Application.Features.Auth
 
         public async Task<Token> Register(RegistrationRequest registrationRequest)
         {
-            var userByEmail = await _UserRepository.FindByEmailAsync(registrationRequest.email);
+            var userByEmail = await _unitOfWork.UserRepository.FindByEmailAsync(registrationRequest.email);
             if (userByEmail != null)
                 throw new Exception("El email ya fue tomado por otra cuenta");
 
@@ -58,7 +58,8 @@ namespace ReservaTurnos.Core.Application.Features.Auth
             user.nombre_usuario = registrationRequest.nombre_usuario;
             user.id_rol = registrationRequest.id_rol;
 
-            await _UserRepository.AddEntityAsync(user);
+            _unitOfWork.Repository<User>().AddEntity(user);
+            await _unitOfWork.Complete();
 
             var infoUser = await GenerateInfoUser(user);
 

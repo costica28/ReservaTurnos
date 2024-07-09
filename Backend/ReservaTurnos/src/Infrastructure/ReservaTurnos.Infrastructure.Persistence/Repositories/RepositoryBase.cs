@@ -14,23 +14,20 @@ namespace ReservaTurnos.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task AddEntityAsync(T entity)
+        public void AddEntity(T entity)
         {
             _dbContext.Set<T>().Add(entity);
-            await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteEntityAsync(T entity)
+        public void DeleteEntity(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
-            await _dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateEntityAsync(T entity)
+        public void UpdateEntity(T entity)
         {
             _dbContext.Set<T>().Attach(entity);
             _dbContext.Entry(entity).State = EntityState.Modified;
-            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyList<T>> GetAllAsync()

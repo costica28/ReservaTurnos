@@ -48,7 +48,7 @@ namespace ReservaTurnos.Commons
             {
                 aes.Key = sha256Bytes;
                 aes.IV = new byte[16];
-
+                aes.Padding = PaddingMode.Zeros;
                 using (MemoryStream ms = new MemoryStream())
                 {
                     using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Write))

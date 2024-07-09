@@ -11,12 +11,12 @@ namespace ReservaTurnos.Presentation.Api.Controllers
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-        private IUserRepository _userRepository;
+        private IUnitOfWork _unitOfWork;
         private IConfiguration _configuration;
 
-        public AuthController(IUserRepository userRepository, IConfiguration configuration)
+        public AuthController(IUnitOfWork unitOfWork, IConfiguration configuration)
         {
-            _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
             _configuration = configuration;
         }
 
@@ -33,7 +33,7 @@ namespace ReservaTurnos.Presentation.Api.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, "", typeof(CodeErrorException))]
         public async Task<IActionResult> Login([FromBody] AuthRequest authRequest)
         {
-            AuthService authService = new AuthService(_configuration, _userRepository);
+            AuthService authService = new AuthService(_configuration, _unitOfWork);
             return Ok(await authService.Login(authRequest));
         }
 
@@ -50,7 +50,7 @@ namespace ReservaTurnos.Presentation.Api.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, "", typeof(CodeErrorException))]
         public async Task<IActionResult> Register([FromBody] RegistrationRequest registrationRequest)
         {
-            AuthService authService = new AuthService(_configuration, _userRepository);
+            AuthService authService = new AuthService(_configuration, _unitOfWork);
             return Ok(await authService.Register(registrationRequest));
         }
     }

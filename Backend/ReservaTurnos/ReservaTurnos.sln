@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservaTurnos.Core.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservaTurnos.Core.Application", "src\Core\ReservaTurnos.Core.Application\ReservaTurnos.Core.Application.csproj", "{5DA622D6-1D32-47D7-AAEE-AA630F84FC6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaTurnos.Commons", "src\Commons\ReservaTurnos.Commons\ReservaTurnos.Commons.csproj", "{225D22C9-6104-4D15-A598-49124178DF8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservaTurnos.Commons", "src\Commons\ReservaTurnos.Commons\ReservaTurnos.Commons.csproj", "{225D22C9-6104-4D15-A598-49124178DF8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{18CD719F-AED7-4AEF-AFDE-822D57ABD095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaTurnos.Core.Application.UnitTests", "test\ReservaTurnos.Core.Application.UnitTests\ReservaTurnos.Core.Application.UnitTests.csproj", "{EFCB0361-2E89-4F81-BA55-6CB48F66293B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{225D22C9-6104-4D15-A598-49124178DF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{225D22C9-6104-4D15-A598-49124178DF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{225D22C9-6104-4D15-A598-49124178DF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCB0361-2E89-4F81-BA55-6CB48F66293B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCB0361-2E89-4F81-BA55-6CB48F66293B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCB0361-2E89-4F81-BA55-6CB48F66293B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCB0361-2E89-4F81-BA55-6CB48F66293B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{E93C8B54-396A-4C80-9DFC-E4E8E76A33A3} = {710A2E2E-BD72-4127-B97B-F3F4DBD421A4}
 		{5DA622D6-1D32-47D7-AAEE-AA630F84FC6C} = {710A2E2E-BD72-4127-B97B-F3F4DBD421A4}
 		{225D22C9-6104-4D15-A598-49124178DF8F} = {1FF89D2F-75DE-4D2C-BDCC-976A039B6271}
+		{EFCB0361-2E89-4F81-BA55-6CB48F66293B} = {18CD719F-AED7-4AEF-AFDE-822D57ABD095}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD51EEF-D2A8-479F-97D6-FC25EE78FBD2}
