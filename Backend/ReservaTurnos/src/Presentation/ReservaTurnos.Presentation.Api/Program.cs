@@ -1,7 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ReservaTurnos.Core.Domain.Models;
 using ReservaTurnos.Infrastructure.Persistence;
 using ReservaTurnos.Presentation.Api.Middleware;
+using ReservaTurnos.Presentation.Api.Middleware.Jwt;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +27,28 @@ builder.Services.AddSwaggerGen(c=>
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please insert JWT with Bearer into field",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                    },
+                    new string[] { }
+                }
+                });
 });
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -46,6 +73,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseCors("CorsReservaTurnos");
+app.UseMiddleware<JwtMiddleware>();
 app.MapControllers();
 
 app.Run();

@@ -4,6 +4,7 @@ using ReservaTurnos.Core.Application.Features.Shifts;
 using ReservaTurnos.Core.Domain.DTO;
 using ReservaTurnos.Core.Domain.Models;
 using ReservaTurnos.Presentation.Api.Errors;
+using ReservaTurnos.Presentation.Api.Middleware.Jwt;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace ReservaTurnos.Presentation.Api.Controllers
@@ -31,7 +32,7 @@ namespace ReservaTurnos.Presentation.Api.Controllers
         /// </remarks>
         /// <returns>El listado de turnos generados</returns>
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [Route("GenerateShifts")]
         [SwaggerResponse(StatusCodes.Status200OK, "Retorna el listado de turnos generados", typeof(Shift))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, "Sucede un error interno en la logica de negocio", typeof(CodeErrorException))]

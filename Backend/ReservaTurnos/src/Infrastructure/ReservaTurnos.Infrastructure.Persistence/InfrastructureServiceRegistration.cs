@@ -15,6 +15,7 @@ namespace ReservaTurnos.Infrastructure.Persistence
 
             services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IShiftRepository, ShiftRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

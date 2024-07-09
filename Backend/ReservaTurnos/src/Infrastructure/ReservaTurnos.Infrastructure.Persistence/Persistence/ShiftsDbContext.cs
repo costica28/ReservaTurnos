@@ -28,6 +28,8 @@ namespace ReservaTurnos.Infrastructure.Persistence.Persistence
         public DbSet<Commerce> Commerces { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Shift> Shifts { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Rol> Rols { get; set; }
 
     }
 }
