@@ -17,6 +17,6 @@ namespace ReservaTurnos.Core.Application.UnitTests.Mocks
             shiftsDbContextFake.Database.EnsureDeleted();
             var mockUnitOfWork = new Mock<UnitOfWork>(shiftsDbContextFake);
             return mockUnitOfWork;
-        } 
+        }
     }
 }

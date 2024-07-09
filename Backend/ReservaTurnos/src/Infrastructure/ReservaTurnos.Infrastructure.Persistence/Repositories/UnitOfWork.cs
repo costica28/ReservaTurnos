@@ -12,17 +12,15 @@ namespace ReservaTurnos.Infrastructure.Persistence.Repositories
         private IShiftRepository _shiftRepository;
         private IUserRepository _userRepository;
 
-
-        public IShiftRepository ShiftRepository => _shiftRepository ?? new ShiftRepository(_dbContext);
-
-        public IUserRepository UserRepository =>_userRepository ?? new UserRepository(_dbContext);
-
         public UnitOfWork(ShiftsDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         public ShiftsDbContext shiftsDbContext => _dbContext;
+
+        public IShiftRepository ShiftRepository { get => _shiftRepository ?? new ShiftRepository(_dbContext); set => _shiftRepository = value; }
+        public IUserRepository UserRepository { get => _userRepository ?? new UserRepository(_dbContext); set => _userRepository = value; }
 
         public async Task<int> Complete()
         {

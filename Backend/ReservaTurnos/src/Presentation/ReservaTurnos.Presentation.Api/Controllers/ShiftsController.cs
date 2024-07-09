@@ -12,13 +12,11 @@ namespace ReservaTurnos.Presentation.Api.Controllers
     [Route("[controller]")]
     public class ShiftsController : ControllerBase
     {
-        private IShiftRepository _shiftRepository;
-        private IRepository<Service> _ServiceRepository;
+        private IUnitOfWork _unitOfWork;
 
-        public ShiftsController(IShiftRepository shiftRepository, IRepository<Service> serviceRepository)
+        public ShiftsController(IUnitOfWork unitOfWork)
         {
-            _shiftRepository = shiftRepository;
-            _ServiceRepository = serviceRepository;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -41,12 +39,7 @@ namespace ReservaTurnos.Presentation.Api.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, "", typeof(CodeErrorException))]
         public async Task<IActionResult> GenerateShifts([FromBody] GenerateShiftsRequest generateShiftsRequest)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            GenerateShifts generateShifts = new GenerateShifts(_shiftRepository, _ServiceRepository);
+            GenerateShifts generateShifts = new GenerateShifts(_unitOfWork);
 
             var response = await generateShifts.ProccesAsync(generateShiftsRequest);
             return Ok(new {data = response });

@@ -8,8 +8,8 @@ namespace ReservaTurnos.Core.Application.Contracts.Persistence
 {
     public interface IUnitOfWork: IDisposable
     {
-        IShiftRepository ShiftRepository { get; }
-        IUserRepository UserRepository { get; }
+        IShiftRepository ShiftRepository { get; set; }
+        IUserRepository UserRepository { get; set; }
 
         IRepository<TEntity> Repository<TEntity>() where TEntity : class;
 

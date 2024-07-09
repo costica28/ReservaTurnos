@@ -1,4 +1,5 @@
-﻿using ReservaTurnos.Core.Application.Contracts.Persistence;
+﻿using ReservaTurnos.Commons;
+using ReservaTurnos.Core.Application.Contracts.Persistence;
 using ReservaTurnos.Core.Application.Exceptions;
 using ReservaTurnos.Core.Domain.DTO;
 using ReservaTurnos.Core.Domain.Models;
@@ -8,25 +9,29 @@ namespace ReservaTurnos.Core.Application.Features.Shifts
 {
     public class GenerateShifts
     {
-        private IShiftRepository _shiftRepository;
-        private IRepository<Service> _serviceRepository;
+        private IUnitOfWork _unitOfWork;
 
-        public GenerateShifts(IShiftRepository shiftRepository, IRepository<Service> serviceRepository)
+        public GenerateShifts(IUnitOfWork unitOfWork)
         {
-            _shiftRepository = shiftRepository;
-            _serviceRepository = serviceRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<List<Shift>> ProccesAsync(GenerateShiftsRequest generateShiftsRequest)
         {
+            bool isFormatValidDateInitial = FormatDateValid.isFormatDateValid(generateShiftsRequest.FechaInicio);
+            bool isFormatValidDateFinal = FormatDateValid.isFormatDateValid(generateShiftsRequest.FechaFin);
+
+            if (!isFormatValidDateInitial || !isFormatValidDateFinal)
+                throw new BadRequestException("La fecha debe estar en el formato dd/mm/yyyyy");
+
             DateTime dateInitial = DateTime.ParseExact(generateShiftsRequest.FechaInicio, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
             DateTime dateFinal = DateTime.ParseExact(generateShiftsRequest.FechaFin, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
-            var existService = await _serviceRepository.GetByIdAsync(generateShiftsRequest.IdServicio);
+            var existService = await _unitOfWork.Repository<Service>().GetByIdAsync(generateShiftsRequest.IdServicio);
             if (existService == null)
                 throw new NotFoundException(nameof(Service), generateShiftsRequest.IdServicio);
 
-            return (List<Shift>)await _shiftRepository.GenerateShift(generateShiftsRequest.IdServicio, dateInitial, dateFinal);
+            return (List<Shift>)await _unitOfWork.ShiftRepository.GenerateShift(generateShiftsRequest.IdServicio, dateInitial, dateFinal);
         }
 
     }
