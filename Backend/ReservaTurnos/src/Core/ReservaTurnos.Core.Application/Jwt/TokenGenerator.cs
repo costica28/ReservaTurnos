@@ -13,7 +13,7 @@ namespace ReservaTurnos.Core.Application.Jwt
         {
             var resultToken = GenerateTokenJwt(configuration, claimsIdentity);
 
-            var expireTime = 4;
+            var expireTime = configuration["JwtToken:ExpireTime"];
 
             var authorization = new Authorization();
             authorization.id = 0;
@@ -22,7 +22,7 @@ namespace ReservaTurnos.Core.Application.Jwt
             {
                 access_token = resultToken,
                 token_type = "bearer",
-                expires_in = Convert.ToInt32(expireTime.ToString())
+                expires_in = Convert.ToInt32(expireTime)
             };
 
             return authorization;
@@ -33,7 +33,7 @@ namespace ReservaTurnos.Core.Application.Jwt
             var secretKey = configuration["JwtToken:SecretKey"];
             var audienceToken = configuration["JwtToken:Audience"];
             var issuerToken = configuration["JwtToken:Issuer"];
-            var expireTime = 4;
+            var expireTime = configuration["JwtToken:ExpireTime"];
 
             var symmertricSecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
             var signingCredentials = new SigningCredentials(symmertricSecurityKey, SecurityAlgorithms.HmacSha256Signature);

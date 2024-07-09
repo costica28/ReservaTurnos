@@ -7,7 +7,7 @@ namespace ReservaTurnos.Core.Domain.Models
     public class Commerce
     {
         public Commerce() {
-            Services = new HashSet<Service>();
+            //Services = new HashSet<Service>();
         }
 
         [Key]
@@ -15,6 +15,6 @@ namespace ReservaTurnos.Core.Domain.Models
         public string nom_comercio { get; set; }
         public int aforo_maximo { get; set; }
 
-        public virtual ICollection<Service> Services { get; set; }
+        //public virtual ICollection<Service> Services { get; set; }
     }
 }

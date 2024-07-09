@@ -8,7 +8,7 @@ namespace ReservaTurnos.Core.Domain.Models
     {
         public Shift()
         {
-            Services = new HashSet<Service>();
+            //Services = new HashSet<Service>();
         }
 
         [Key]        
@@ -18,7 +18,7 @@ namespace ReservaTurnos.Core.Domain.Models
         public TimeSpan hora_apertura { get; set; }
         public TimeSpan hora_cierre { get; set; }
         public int estado { get; set; }
-        public virtual ICollection<Service> Services { get; set; }
+        //public virtual ICollection<Service> Services { get; set; }
 
     }
 }

@@ -13,8 +13,8 @@ namespace ReservaTurnos.Core.Domain.Models
         public TimeSpan hora_apertura { get; set; }
         public TimeSpan hora_cierre { get; set; }
         public int duracion { get; set; }
-        public virtual Commerce? Commerce { get; set; }
-        public virtual Shift? Shift { get; set; }
+        //public virtual Commerce? Commerce { get; set; }
+        //public virtual Shift? Shift { get; set; }
         
     }
 }

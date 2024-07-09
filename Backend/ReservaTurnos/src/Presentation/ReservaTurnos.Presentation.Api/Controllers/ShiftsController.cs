@@ -37,7 +37,7 @@ namespace ReservaTurnos.Presentation.Api.Controllers
         [SwaggerResponse(StatusCodes.Status200OK, "Retorna el listado de turnos generados", typeof(Shift))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, "Sucede un error interno en la logica de negocio", typeof(CodeErrorException))]
         [SwaggerResponse(StatusCodes.Status404NotFound, "El registro que se consulta no existe", typeof(CodeErrorException))]
-        [SwaggerResponse(StatusCodes.Status401Unauthorized)]        
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Requiere que el usuario este autenticado")]        
         [SwaggerResponse(StatusCodes.Status500InternalServerError, "", typeof(CodeErrorException))]
         public async Task<IActionResult> GenerateShifts([FromBody] GenerateShiftsRequest generateShiftsRequest)
         {

@@ -10,19 +10,19 @@ namespace ReservaTurnos.Infrastructure.Persistence.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Commerce>()
-                .HasMany(m => m.Services)
-                .WithOne(m => m.Commerce)
-                .HasForeignKey(m => m.id_comercio)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Commerce>()
+            //    .HasMany(m => m.Services)
+            //    .WithOne(m => m.Commerce)
+            //    .HasForeignKey(m => m.id_comercio)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Shift>()
-                .HasMany(m => m.Services)
-                .WithOne(m => m.Shift)
-                .HasForeignKey(m => m.id_servicio)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Shift>()
+            //    .HasMany(m => m.Services)
+            //    .WithOne(m => m.Shift)
+            //    .HasForeignKey(m => m.id_servicio)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
 
         public DbSet<Commerce> Commerces { get; set; }
