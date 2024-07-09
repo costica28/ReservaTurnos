@@ -15,3 +15,5 @@
 /Backend/ReservaTurnos/src/Presentation/ReservaTurnos.Presentation.Api/bin/Debug/net8.0
 /Backend/ReservaTurnos/src/Presentation/ReservaTurnos.Presentation.Api/obj
 /Backend/ReservaTurnos/.vs
+/Backend/ReservaTurnos/test/ReservaTurnos.Core.Application.UnitTests/obj
+/Backend/ReservaTurnos/test/ReservaTurnos.Core.Application.UnitTests/bin/Debug/net8.0
