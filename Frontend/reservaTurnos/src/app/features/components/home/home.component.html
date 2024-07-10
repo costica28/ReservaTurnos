@@ -1,0 +1,65 @@
+<header class="d-flex justify-content-between align-items-center p-3 bd-highlight">
+  <div class="right-div">
+    <h3 class="justify-content-center">Generar turnos</h3>
+  </div>
+  <div class="right-div">
+    <button class="btn btn-info justify-content-end" (click)="logout()">Cerrar Sesión</button>
+  </div>
+
+</header>
+
+<main class="container-fluid">
+  <section>
+    <article>
+      <form [formGroup]="FormGenerateShift" (ngSubmit)="generateShift();">
+        <div class="row border mx-auto">
+            <div class="col-md-3">
+              <label class="form-label">Comercios</label>
+              <select class="form-select" formControlName="commerce" (change)="commerceSelected($event)">
+                <option *ngFor="let commerce of commerces" [value]="commerce.id_comercio">{{commerce.nom_comercio}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Servicios</label>
+              <select class="form-select" formControlName="service">
+                <option *ngFor="let service of servicesTemporal" [value]="service.id_servicio">{{service.nom_servicio}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="fechaInicio" class="form-label">Fecha Inicio</label>
+              <input type="date" class="form-control" formControlName="dateInitial" id="fechaInicio">
+            </div>
+            <div class="col-md-3">
+              <label for="fechaFin" class="form-label">Fecha Fin</label>
+              <input type="date" class="form-control" formControlName="dateFinal" id="fechaFin">
+            </div>
+            <button class="col-md-12 btn btn-primary my-3" type="submit" [disabled]="FormGenerateShift.invalid">Generar turnos</button>
+          </div>
+        </form>
+    </article>
+
+    <article class="my-5">
+      <table class="table table-striped">
+        <thead class="thead">
+          <tr>
+            <th># Turno</th>
+            <th>Fecha Turno</th>
+            <th>Hora Apertura</th>
+            <th>Hora Cierre</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let shift of shifts">
+            <td>{{shift.id_turno}}</td>
+            <td>{{shift.fecha_turno | date: "dd/MM/yyyy"}}</td>
+            <td>{{shift.hora_apertura}}</td>
+            <td>{{shift.hora_cierre}}</td>
+            <td>{{shift.estado | statusEnum}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+  </section>
+</main>

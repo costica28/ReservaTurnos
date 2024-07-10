@@ -1,0 +1,18 @@
+main{
+  background-image: url(../../../../assets/img/turnosLogin.jpg);
+  height: 100vh;
+}
+
+.full-height
+{
+  height: 90vh;
+}
+
+.tamano{
+  width: 500px;
+}
+
+.border{
+  background-color: rgb(202, 197, 197);
+  border-radius: 8px;
+}
