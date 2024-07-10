@@ -17,3 +17,5 @@
 /Backend/ReservaTurnos/.vs
 /Backend/ReservaTurnos/test/ReservaTurnos.Core.Application.UnitTests/obj
 /Backend/ReservaTurnos/test/ReservaTurnos.Core.Application.UnitTests/bin/Debug/net8.0
+/Frontend/reservaTurnos/public
+/Frontend/reservaTurnos/.vscode

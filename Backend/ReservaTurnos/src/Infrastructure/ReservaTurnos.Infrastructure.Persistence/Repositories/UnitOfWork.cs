@@ -1,6 +1,8 @@
 ﻿using ReservaTurnos.Core.Application.Contracts.Persistence;
 using ReservaTurnos.Infrastructure.Persistence.Persistence;
+using System;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Infrastructure.Persistence.Repositories
 {
@@ -11,6 +13,7 @@ namespace ReservaTurnos.Infrastructure.Persistence.Repositories
         private readonly ShiftsDbContext _dbContext;
         private IShiftRepository _shiftRepository;
         private IUserRepository _userRepository;
+        private IRolRepository _rolRepository;
 
         public UnitOfWork(ShiftsDbContext dbContext)
         {
@@ -21,6 +24,7 @@ namespace ReservaTurnos.Infrastructure.Persistence.Repositories
 
         public IShiftRepository ShiftRepository { get => _shiftRepository ?? new ShiftRepository(_dbContext); set => _shiftRepository = value; }
         public IUserRepository UserRepository { get => _userRepository ?? new UserRepository(_dbContext); set => _userRepository = value; }
+        public IRolRepository RolRepository { get => _rolRepository ?? new RolRepository(_dbContext); set => _rolRepository = value; }
 
         public async Task<int> Complete()
         {

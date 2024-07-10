@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using ReservaTurnos.Core.Domain.Models;
+using System;
 
 namespace ReservaTurnos.Presentation.Api.Middleware.Jwt
 {

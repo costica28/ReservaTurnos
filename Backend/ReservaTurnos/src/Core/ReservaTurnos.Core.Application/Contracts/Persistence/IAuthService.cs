@@ -1,5 +1,6 @@
 ﻿using ReservaTurnos.Core.Domain.DTO;
 using ReservaTurnos.Core.Domain.Models;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Core.Application.Contracts.Identity
 {

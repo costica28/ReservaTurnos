@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using ReservaTurnos.Core.Domain.Models;
 using ReservaTurnos.Infrastructure.Persistence.Persistence;
+using System.Linq;
 
 namespace ReservaTurnos.Core.Application.UnitTests.Mocks
 {

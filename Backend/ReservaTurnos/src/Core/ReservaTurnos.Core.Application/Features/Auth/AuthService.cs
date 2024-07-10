@@ -5,8 +5,9 @@ using ReservaTurnos.Core.Application.Exceptions;
 using ReservaTurnos.Core.Application.Jwt;
 using ReservaTurnos.Core.Domain.DTO;
 using ReservaTurnos.Core.Domain.Models;
+using System;
 using System.Security.Claims;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Core.Application.Features.Auth
 {
@@ -51,6 +52,10 @@ namespace ReservaTurnos.Core.Application.Features.Auth
             var userByEmail = await _unitOfWork.UserRepository.FindByEmailAsync(registrationRequest.email);
             if (userByEmail != null)
                 throw new Exception("El email ya fue tomado por otra cuenta");
+
+            var isExistRol = await _unitOfWork.RolRepository.GetByIdAsync(registrationRequest.id_rol);
+            if (isExistRol == null)
+                throw new Exception("El rol ingresado no existe");
 
             User user = new User();
             user.contrasena = Commons.EncryptDecript.Encript(registrationRequest.contrasena, _KeyEncriptDecript);

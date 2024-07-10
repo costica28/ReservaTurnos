@@ -1,4 +1,5 @@
-﻿using System.Security.Principal;
+﻿using System.Linq;
+using System.Security.Principal;
 
 namespace ReservaTurnos.Presentation.Api.Middleware.Jwt
 {

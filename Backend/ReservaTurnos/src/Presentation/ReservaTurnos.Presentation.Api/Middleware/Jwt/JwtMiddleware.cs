@@ -1,7 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using ReservaTurnos.Core.Domain.Models;
+using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Presentation.Api.Middleware.Jwt
 {

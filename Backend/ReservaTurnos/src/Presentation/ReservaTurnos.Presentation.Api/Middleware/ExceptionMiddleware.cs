@@ -1,7 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using ReservaTurnos.Core.Application.Exceptions;
 using ReservaTurnos.Presentation.Api.Errors;
+using System;
 using System.Net;
+using System.Threading.Tasks;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace ReservaTurnos.Presentation.Api.Middleware

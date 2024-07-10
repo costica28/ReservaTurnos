@@ -1,4 +1,7 @@
-﻿namespace ReservaTurnos.Core.Application.Contracts.Persistence
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace ReservaTurnos.Core.Application.Contracts.Persistence
 {
     public interface IRepository<T> where T : class
     {

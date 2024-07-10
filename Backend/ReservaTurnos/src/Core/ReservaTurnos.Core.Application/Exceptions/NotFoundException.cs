@@ -1,4 +1,6 @@
-﻿namespace ReservaTurnos.Core.Application.Exceptions
+﻿using System;
+
+namespace ReservaTurnos.Core.Application.Exceptions
 {
     public class NotFoundException: ApplicationException
     {

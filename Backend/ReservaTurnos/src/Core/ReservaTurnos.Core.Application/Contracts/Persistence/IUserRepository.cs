@@ -1,4 +1,5 @@
 ﻿using ReservaTurnos.Core.Domain.Models;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Core.Application.Contracts.Persistence
 {

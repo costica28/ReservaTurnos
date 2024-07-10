@@ -1,12 +1,13 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ReservaTurnos.Core.Domain.Models;
 using ReservaTurnos.Infrastructure.Persistence;
 using ReservaTurnos.Presentation.Api.Middleware;
 using ReservaTurnos.Presentation.Api.Middleware.Jwt;
+using System;
+using System.IO;
 using System.Reflection;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 

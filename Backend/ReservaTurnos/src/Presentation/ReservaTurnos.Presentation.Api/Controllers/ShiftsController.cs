@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using ReservaTurnos.Core.Application.Contracts.Persistence;
 using ReservaTurnos.Core.Application.Features.Shifts;
 using ReservaTurnos.Core.Domain.DTO;
@@ -6,6 +7,7 @@ using ReservaTurnos.Core.Domain.Models;
 using ReservaTurnos.Presentation.Api.Errors;
 using ReservaTurnos.Presentation.Api.Middleware.Jwt;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Threading.Tasks;
 
 namespace ReservaTurnos.Presentation.Api.Controllers
 {

@@ -1,6 +1,8 @@
 ﻿using ReservaTurnos.Core.Application.Contracts.Persistence;
 using ReservaTurnos.Infrastructure.Persistence.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ReservaTurnos.Infrastructure.Persistence.Repositories
 {
