@@ -15,7 +15,7 @@ CREATE TABLE servicios(
 	hora_apertura time not null,
 	hora_cierre time not null,
 	duracion int not null,
-	CONSTRAINT FK_id_comercio_servicios FOREIGN KEY (id_comercio) REFERENCES comercios(id_comercio)
+	FOREIGN KEY (id_comercio) REFERENCES comercios(id_comercio)
 )
 
 CREATE TABLE turnos(
@@ -25,7 +25,7 @@ CREATE TABLE turnos(
 	hora_apertura time not null,
 	hora_cierre time not null,
 	estado int not null,
-	CONSTRAINT Fk_id_Servicio_turnos FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio)
+	FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio)
 )
 
 
@@ -40,5 +40,14 @@ CREATE TABLE usuarios(
 	email varchar(20) not null,
 	contrasena varchar(60) not null,
 	id_rol int not null,
-	CONSTRAINT fk_id_rol_usuarios FOREIGN KEY(id_rol) REFERENCES roles(id)
+	FOREIGN KEY(id_rol) REFERENCES roles(id)
 )
+
+
+INSERT INTO comercios VALUES('Sonria', 40),('Optica Vision Clara', 12),('Colsubsidio', 100)
+INSERT INTO servicios VALUES(1, 'Brackets', '07:00:00','20:00:00', 40),(1, 'Blanqueamiento Dental', '07:00:00','20:00:00', 30),
+							(2, 'Optimetria', '09:00:00','18:30:00', 30),(3, 'Consulta Generales', '07:00:00','22:00:00', 30),
+							(3, 'Toma de Muestras', '08:00:00','20:00:00', 30),(3, 'Odontologia', '08:30:00', '18:00:00', 40)
+							
+INSERT INTO roles VALUES('Administrador')
+INSERT INTO usuarios VALUES('prueba', 'admin@gmail.com','ZQ929BFdzslixVBMncL5sQ==', 1)
