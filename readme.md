@@ -3,6 +3,7 @@
 ### Configuración
 
 * Compilar los script sql que se encuentran en la siguiente ruta https://github.com/costica28/ReservaTurnos/tree/main/Scripts%20DB
+* La contraseña del usuario admin@gmail.com se encuentra encriptada y es 123456
 
 * __Back-End__
     * Modificar en el archivo appSettigns.Json la propiedad ConnectionString por su cadena de conexion de la base de datos
